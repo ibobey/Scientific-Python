@@ -1,13 +1,19 @@
 from numpy import ndarray
 import numpy as np
-from linreg.LinReg import LinReg
+from linreg.LinearRegression import LinearRegression
+from pprint import pprint
 
+x: ndarray = np.array([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+y: ndarray = np.array([1, 1, 2, 2, 4, 5, 6, 8.5, 9.1, 10.3])
 
-x: ndarray = np.array([7,4,6,2,1,1,3])
-y: ndarray = np.array([2,4,2,5,7,6,5])
+test = LinearRegression(x=x, y=y)
 
-test = LinReg(x=x, y =y)
+test.predict_linear_model()
+test.calculate_errors()
+y_predicted = test.get_model_function()
 
-test.calculate_model()
+pprint(list(zip(y, y_predicted(x))))
 
-test.show_model()
+print(test.MATH_MODELLED_FUNCTION)
+print(test.MSE)
+print(test.SE)
