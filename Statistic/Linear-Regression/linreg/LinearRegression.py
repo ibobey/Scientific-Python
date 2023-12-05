@@ -37,7 +37,7 @@ class LinearRegression:
         Math Modelled function
         :return: str
         """
-        return f"p(x) = {self.__m}x + ({self.__b})"
+        return r"$ f(x_i) = {0}x + ({1}) $".format(round(self.__m, 2), round(self.__b, 2))
 
     @property
     def PREDICTED_Y_VALUES(self) -> ndarray:
