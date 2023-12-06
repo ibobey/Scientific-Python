@@ -20,7 +20,7 @@ data.rename(columns=
             {'exp(in months)': "x",
              'salary(in thousands)': "y"}, inplace=True)
 
-""" PREDICTION by linreg """
+""" PREDICTION by linreg module"""
 
 test_linreg: LinearRegression = LinearRegression(x=data.x,
                                                  y=data.y)
