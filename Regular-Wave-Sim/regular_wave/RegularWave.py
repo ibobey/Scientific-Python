@@ -62,7 +62,7 @@ class RegularWave:
     def __calculate_u_w(self, z: ndarray, t: float) -> tuple[ndarray, ndarray]:
         u: ndarray = ((self.omega * self.A) / sinh(self.k * self.d)) * cosh(self.k * (self.d + z)) * cos(
             self.omega * t - self.k * self.__x)
-        w: ndarray = ((self.omega * self.A) / sinh(self.k * self.d)) * sinh(self.k * (self.d + z)) * sin(
+        w: ndarray = -1 * ((self.omega * self.A) / sinh(self.k * self.d)) * sinh(self.k * (self.d + z)) * sin(
             self.omega * t - self.k * self.__x)
 
         return u, w
@@ -73,5 +73,5 @@ class RegularWave:
         u_, w_ = self.__calculate_u_w(z=z,
                                       t=t)
         speed: ndarray = sqrt(power(u_, 2) + power(w_, 2))
-        array_: ndarray = np.vstack((self.x, wave + delta, u_, w_, speed)).T
+        array_: ndarray = np.vstack((self.x, wave + delta, u_, w_, speed))
         return array_
